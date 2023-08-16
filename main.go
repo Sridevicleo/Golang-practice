@@ -1,10 +1,13 @@
+
+
+
 package main
 
 import (
-	"mypractice/version1"
+	"mypractice/staticinterface"
 )
 func main() {
-version1.Run()
+staticinterface.Run()
 	
 
 
