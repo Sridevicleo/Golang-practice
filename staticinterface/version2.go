@@ -40,13 +40,14 @@ type companyB struct{
 	name string
 }
 
-type wrapper interface{
-	SetName(name string)
-	GetName()
+type wrapper interface{ //declaring wrapper interface
+	SetName(name string) //registering method signatures with wrapper interface
+	GetName() // registering method signatures with wrapper interface
+	// the signatures should be the same for all the structs in order for wrapper to function.
 }
 
 func Run(){
-c1:=companyA{}
+c1:=companyA{} // calling wrapper function for companyA. This will execute the registered signatures functions for company A"
 NewWrapper(&c1)
 }
 
