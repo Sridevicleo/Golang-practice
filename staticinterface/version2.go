@@ -40,38 +40,35 @@ type companyB struct{
 	name string
 }
 
-type wrapper interface{ //declaring wrapper interface
-	SetName(name string) //registering method signatures with wrapper interface
-	GetName() // registering method signatures with wrapper interface
-	// the signatures should be the same for all the structs in order for wrapper to function.
-}
-
-func Run(){
-c1:=companyA{} // calling wrapper function for companyA. This will execute the registered signatures functions for company A"
-NewWrapper(&c1)
+type wrapper interface{
+	SetName(name string)
+	GetName()
 }
 
 func (c *companyA) SetName(name string){
-
-	c.name =name
+	c.name=name
 }
 
 func (c *companyA) GetName(){
-fmt.Printf("The name of company A is %v",c.name)
+	fmt.Printf("The name of CompanyA is: %v\n",c.name)
 }
 
 func (c *companyB) SetName(name string){
-
-	c.name =name
+	c.name=name
 }
 
 func (c *companyB) GetName(){
-fmt.Printf("The name of company B is %v",c.name)
+	fmt.Printf("The name of CompanyA is: %v\n",c.name)
+}
+	
+func NewWrapper(input wrapper, name string){
+	input.SetName(name)
+	input.GetName()
 }
 
-func NewWrapper(input wrapper){
-	input.SetName("THIS IS THE COMPANY NAME\n")
-	input.GetName()
+func Run(){
+	
+	NewWrapper(&companyA{},"XYZ company")
+	NewWrapper(&companyB{},"ABC company")
 
-
-} 
+}
