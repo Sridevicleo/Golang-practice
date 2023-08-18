@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	staticinterface.Run()
+	staticinterface.Runexercise4()
 
 }
